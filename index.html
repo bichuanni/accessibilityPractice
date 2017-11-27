@@ -62,7 +62,21 @@ $(document).ready(function() {
 
 });
 
-</script><script>
+</script>
+
+</head>
+<body>
+<p>
+<input type="text" id="command"><input type="button" value="Do something!" id="commandbutton">
+</p>
+
+<p>
+<input type="button" value="cat"><br>
+<button id="start_button" onclick="startButton(event)" style="display: inline-block;"></button>
+<a href="google.com">Google</a><br>
+<a href="cmu.edu">CMU</a><br>
+
+<script>
 var create_email = false;
 var final_transcript = '';
 var recognizing = false;
@@ -241,19 +255,5 @@ function showButtons(style) {
   email_info.style.display = 'none';
 }
 </script>
-
-</head>
-<body>
-<p>
-<input type="text" id="command"><input type="button" value="Do something!" id="commandbutton">
-</p>
-
-<p>
-<input type="button" value="cat"><br>
-<button id="start_button" onclick="startButton(event)" style="display: inline-block;"></button>
-<a href="google.com">Google</a><br>
-<a href="cmu.edu">CMU</a><br>
-
-
 </body>
 </html>
