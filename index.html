@@ -39,7 +39,10 @@ $(document).ready(function() {
       	  break;
       	case "scroll":
       	  // what do we do on scroll?
-      	  console.log("handling scroll`")
+      	  console.log("handling scroll")
+		    $('html, body').animate({
+		        scrollTop: $(document).scrollTop()+150
+		    }, 1000);
       	  break;
       	case "enter":
       	  // what do we do on enter?
@@ -47,6 +50,7 @@ $(document).ready(function() {
       	  break;
       	default:
       	  console.log("sorry, that is not a recognized command")
+      	  alert("sorry, that is not a recognized command");
       }
 
 
@@ -76,7 +80,7 @@ $(document).ready(function() {
 <a href="google.com">Google</a><br>
 <a href="cmu.edu">CMU</a><br>
 
-<script>
+<!-- <script>
 var create_email = false;
 var final_transcript = '';
 var recognizing = false;
@@ -254,6 +258,6 @@ function showButtons(style) {
   copy_info.style.display = 'none';
   email_info.style.display = 'none';
 }
-</script>
+</script> -->
 </body>
 </html>
