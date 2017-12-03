@@ -40,20 +40,26 @@ $(document).ready(function() {
       	case "scroll":
       	  // what do we do on scroll?
       	  console.log("handling scroll")
-      	  switch(arg) {
-      	  	case "up":
-      	  		$('html, body').animate({
-			        scrollTop: $(document).scrollTop()-150
-			    }, 1000);
-      	  		break;
-      	  	case "left":
-      	  		break;
-      	  	case "right":
-      	  		break;
-      	  	default:
-			    $('html, body').animate({
-			        scrollTop: $(document).scrollTop()+150
-			    }, 1000);
+      	  if (arg == "up"){
+      	  	$('html, body').animate({
+		        scrollTop: $(document).scrollTop()-150
+		    }, 1000);
+    	  }   
+      	  if (arg == "down"){
+      	  	$('html, body').animate({
+			    scrollTop: $(document).scrollTop()+150
+			}, 1000);
+      	  }   
+      	  if (arg == "left"){
+      	  	$('html, body').animate({
+		        scrollTop: $(document).scrollLeft()-150
+		    }, 1000);
+    	  } 
+    	  if (arg == "right"){
+      	  	$('html, body').animate({
+		        scrollTop: $(document).scrollLeft()+150
+		    }, 1000);
+    	  } 
       	  break;
       	case "enter":
       	  // what do we do on enter?
