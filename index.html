@@ -54,12 +54,8 @@ $(document).ready(function() {
             console.log($(this)[0].tagName);
       	    if($(this)[0].tagName == "A") {
               if ($(this)[0].id == arg){
-                console.log($(this)[0]);
-                console.log($(this));
-                console.log($(this).herf);
-                console.log($(this)[0].herf);
-                console.log($(this).val);
-                console.log($(this)[0].val);
+                console.log($(this).attr('href'));
+                console.log($($(this)[0]).attr('href'));
                 //window.location.href = $(this)[0].herf;
               }
       	    	// look for the text in INPUT fields
