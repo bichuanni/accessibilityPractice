@@ -110,18 +110,7 @@ $(document).ready(function() {
 
           })
       	  break;
-      	// default:
-      	//   console.log("sorry, that is not a recognized command")
-      	 
       } 
-
-
-	  //console.log("Scroll " + result[1]);
-	  //if(result[1]=="up") {
-	  	// scroll up
-	  //} else if(result[1]=="down") {
-	  	// scroll down
-	  //}
  	} else {
     alert("sorry, that is not a recognized command");
   }
@@ -162,6 +151,9 @@ $(document).ready(function() {
             }
           }
           r.innerHTML = finalTranscripts + '<span style="color:#999">' + interimTranscripts + '</span>';
+        
+          console.log(finalTranscripts);
+          console.log(interimTranscripts);
         };
 
         speechRecognizer.onerror = function(event){
