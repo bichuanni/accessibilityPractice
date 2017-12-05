@@ -49,8 +49,11 @@ $(document).ready(function() {
 
       	  var stringpieces = arg.split(/\s/);
 
+
       	  $("a,input,button").each(function() {
+            console.log($(this)[0].tagName);
       	    if($(this)[0].tagName == "INPUT") {
+
       	    	// look for the text in INPUT fields
       	    } //else if() {
 
