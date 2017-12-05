@@ -116,7 +116,7 @@ $(document).ready(function() {
 
     function startConverting(){
       if('webkitSpeechRecognition' in window){
-        var speechRecognizer = webkitSpeechRecognition();
+        var speechRecognizer = new webkitSpeechRecognition();
         speechRecognizer.continuous = true;
         speechRecognizer.interimResults = true;
         speechRecognizer.lang = 'en-IN';
