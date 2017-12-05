@@ -110,39 +110,42 @@ $(document).ready(function() {
 <body>
   <h4 align="center"> Speech to TEXT</h4>
   <div id="result"></div>
-  <button><i calss="fa fa-microphone"></i></button>
+  <button onclick="startConverting();">speek<i calss="fa fa-microphone"></i></button>
   <script type="text/javascript">
     var r = document.getElementById('result');
 
-    if('windowsSpeechRecognition' in window){
-      var speechRecognizer = webkitSpeechRecognition();
-      speechRecognizer.continuous = true;
-      speechRecognizer.interimResults = true;
-      speechRecognizer.lang = 'en-IN';
-      speechRecognizer.start();
+    function startConverting(){
+      if('windowsSpeechRecognition' in window){
+        var speechRecognizer = webkitSpeechRecognition();
+        speechRecognizer.continuous = true;
+        speechRecognizer.interimResults = true;
+        speechRecognizer.lang = 'en-IN';
+        speechRecognizer.start();
 
-      var finalTranscripts = '';
+        var finalTranscripts = '';
 
-      speechRecognizer.onresult = function(event){
-        var interimTranscripts = '';
-        for (var i = event.resultIndex; i < event.results.length; i++){
-          var transcript = event.results[i][0].transcript;
-          transcript.replace("\n","<br>");
-          if (event.results[i].isFinal){
-            finalTranscripts += transcript;
-          } else {
-            interimTranscripts += transcriptl
+        speechRecognizer.onresult = function(event){
+          var interimTranscripts = '';
+          for (var i = event.resultIndex; i < event.results.length; i++){
+            var transcript = event.results[i][0].transcript;
+            transcript.replace("\n","<br>");
+            if (event.results[i].isFinal){
+              finalTranscripts += transcript;
+            } else {
+              interimTranscripts += transcriptl
+            }
           }
-        }
-        r.innerHTML = finalTranscripts + '<span style="color:#999">' + interimTranscripts + '</span>';
-      };
+          r.innerHTML = finalTranscripts + '<span style="color:#999">' + interimTranscripts + '</span>';
+        };
 
-      speechRecognizer.onerror = function(event){
+        speechRecognizer.onerror = function(event){
 
-      };
-    } else {
-
+        };
+      } else {
+        r.innerHTML = 'Your broswer is not supported.';
+      }
     }
+    
   </script>
   <p>
   <input type="text" id="command"><input type="button" value="Do something!" id="commandbutton">
