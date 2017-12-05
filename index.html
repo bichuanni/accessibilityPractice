@@ -181,12 +181,10 @@ $(document).ready(function() {
             } else if($(this)[0].tagName == "INPUT") {
               if ($(this).attr('value') == arg){
                 $(this).trigger("click");
-                //console.log("ah");
               } 
-            } else {
-              alert("sorry, that is not a recognized command");
             }
           })
+          alert("sorry, that is not a recognized command");
 
           break;
         case "scroll":
