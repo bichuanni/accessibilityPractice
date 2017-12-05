@@ -165,80 +165,79 @@ $(document).ready(function() {
 
             console.log("verb: " + verb + ", args: " + arg);
 
-      switch(verb) {
-        case "click":
-          console.log("handling click")
+            switch(verb) {
+              case "click":
+                console.log("handling click")
 
-          var stringpieces = arg.split(/\s/);
-
-
-          $("a,input").each(function() {
-            if($(this)[0].tagName == "A") {
-              if ($(this)[0].id == arg){
-                window.location.href = $(this).attr('href');
-                clickTriggered = true;
-              }
-              // look for the text in INPUT fields
-            } else if($(this)[0].tagName == "INPUT") {
-              if ($(this).attr('value') == arg){
-                $(this).trigger("click");
-                clickTriggered = true;
-              } 
-            }
-          })
-          if (clickTriggered == false){
-            alert("sorry, that is not a recognized command");
-          }
-          clickTriggered = false;
-
-          break;
-        case "scroll":
-          console.log("handling scroll");
-
-          if (arg == "up"){
-            $('html, body').animate({
-            scrollTop: $(document).scrollTop()-150
-        }, 1000);
-        }   
-          else if (arg == "down"){
-            $('html, body').animate({
-          scrollTop: $(document).scrollTop()+150
-      }, 1000);
-          }   
-          else if (arg == "left"){
-            $('html, body').animate({
-            scrollTop: $(document).scrollLeft()-150
-        }, 1000);
-        } 
-        else if (arg == "right"){
-            $('html, body').animate({
-            scrollTop: $(document).scrollLeft()+150
-        }, 1000);
-        } else{
-            alert("sorry, that is not a recognized command");
-        }
-          break;
-        case "enter":
-          console.log("handling enter")
-
-          var stringpieces = arg.split(/\s/);
+                var stringpieces = arg.split(/\s/);
 
 
-          $("input").each(function() {
-            if ($(this)[0].id == "empty"){
-              $(this).focus();
-              $(this).val(arg);
-            }
+                $("a,input").each(function() {
+                  if($(this)[0].tagName == "A") {
+                    if ($(this)[0].id == arg){
+                      window.location.href = $(this).attr('href');
+                      clickTriggered = true;
+                    }
+                    // look for the text in INPUT fields
+                  } else if($(this)[0].tagName == "INPUT") {
+                    if ($(this).attr('value') == arg){
+                      $(this).trigger("click");
+                      clickTriggered = true;
+                    } 
+                  }
+                })
+                if (clickTriggered == false){
+                  alert("sorry, that is not a recognized command");
+                }
+                clickTriggered = false;
 
-          })
-          break;
-      } 
-      if (commandTriggered == false){
+                break;
+              case "scroll":
+                console.log("handling scroll");
+
+                if (arg == "up"){
+                  $('html, body').animate({
+                  scrollTop: $(document).scrollTop()-150
+                  }, 1000);
+                }   
+                else if (arg == "down"){
+                  $('html, body').animate({
+                  scrollTop: $(document).scrollTop()+150
+                  }, 1000);
+                }   
+                else if (arg == "left"){
+                  $('html, body').animate({
+                  scrollTop: $(document).scrollLeft()-150
+                  }, 1000);
+                } 
+                else if (arg == "right"){
+                  $('html, body').animate({
+                  scrollTop: $(document).scrollLeft()+150
+                  }, 1000);
+                } else{
+                  alert("sorry, that is not a recognized command");
+                }
+                break;
+              case "enter":
+                console.log("handling enter")
+
+                var stringpieces = arg.split(/\s/);
+
+
+                $("input").each(function() {
+                  if ($(this)[0].id == "empty"){
+                    $(this).focus();
+                    $(this).val(arg);
+                  }
+
+                })
+                break;
+            } 
+          } 
+          if (commandTriggered == false){
             alert("sorry, that is not a recognized command");
           }
           commandTriggered = false;
-  } 
-
         };
 
         speechRecognizer.onerror = function(event){
