@@ -115,7 +115,7 @@ $(document).ready(function() {
     var r = document.getElementById('result');
 
     function startConverting(){
-      if('windowsSpeechRecognition' in window){
+      if('webkitSpeechRecognition' in window){
         var speechRecognizer = webkitSpeechRecognition();
         speechRecognizer.continuous = true;
         speechRecognizer.interimResults = true;
