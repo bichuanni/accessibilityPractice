@@ -152,6 +152,7 @@ $(document).ready(function() {
           }
           r.innerHTML = finalTranscripts + '<span style="color:#999">' + interimTranscripts + '</span>';
           
+          var commandTriggered = false;
           var clickTriggered = false;
           var re = /^(click|scroll|enter)\s(.*)/i;
           var result = re.exec(finalTranscripts);
@@ -165,10 +166,8 @@ $(document).ready(function() {
 
       switch(verb) {
         case "click":
-          // what do we do if click?
+          commandTriggered = true;
           console.log("handling click")
-
-          //console.log($("*:contains('" + arg + "')"));
 
           var stringpieces = arg.split(/\s/);
 
@@ -194,8 +193,9 @@ $(document).ready(function() {
 
           break;
         case "scroll":
-          // what do we do on scroll?
-          console.log("handling scroll")
+          commandTriggered = true;
+          console.log("handling scroll");
+
           if (arg == "up"){
             $('html, body').animate({
             scrollTop: $(document).scrollTop()-150
@@ -220,7 +220,7 @@ $(document).ready(function() {
         }
           break;
         case "enter":
-          // what do we do on enter?
+          commandTriggered = true;
           console.log("handling enter")
 
           var stringpieces = arg.split(/\s/);
@@ -235,6 +235,10 @@ $(document).ready(function() {
           })
           break;
       } 
+      if (commandTriggered == false){
+            alert("sorry, that is not a recognized command");
+          }
+          commandTriggered = false;
   } 
 
         };
