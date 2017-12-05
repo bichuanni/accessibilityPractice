@@ -33,6 +33,7 @@ $(document).ready(function() {
 
     var re = /^(click|scroll|enter)\s(.*)/i;
     var result = re.exec(potentialcommand);
+    console.log(result);
 
  	if(result) {
 	  var verb = result[1];
@@ -54,9 +55,7 @@ $(document).ready(function() {
             console.log($(this)[0].tagName);
       	    if($(this)[0].tagName == "A") {
               if ($(this)[0].id == arg){
-                console.log($(this).attr('href'));
-                console.log($($(this)[0]).attr('href'));
-                //window.location.href = $(this)[0].herf;
+                window.location.href = $(this).attr('href');
               }
       	    	// look for the text in INPUT fields
       	    } //else if() {
