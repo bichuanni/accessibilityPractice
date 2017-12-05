@@ -152,8 +152,85 @@ $(document).ready(function() {
           }
           r.innerHTML = finalTranscripts + '<span style="color:#999">' + interimTranscripts + '</span>';
         
-          console.log(finalTranscripts);
-          console.log(interimTranscripts);
+          var re = /^(click|scroll|enter)\s(.*)/i;
+          var result = re.exec(finalTranscripts);
+          console.log(result);
+
+          if(result) {
+    var verb = result[1];
+      var arg = result[2]
+
+      console.log("verb: " + verb + ", args: " + arg)
+
+      switch(verb) {
+        case "click":
+          // what do we do if click?
+          console.log("handling click")
+
+          //console.log($("*:contains('" + arg + "')"));
+
+          var stringpieces = arg.split(/\s/);
+
+
+          $("a,input").each(function() {
+            if($(this)[0].tagName == "A") {
+              if ($(this)[0].id == arg){
+                window.location.href = $(this).attr('href');
+              }
+              // look for the text in INPUT fields
+            } else if($(this)[0].tagName == "INPUT") {
+              if ($(this).attr('value') == arg){
+                $(this).trigger("click");
+                //console.log("ah");
+              }
+            }
+          })
+
+          break;
+        case "scroll":
+          // what do we do on scroll?
+          console.log("handling scroll")
+          if (arg == "up"){
+            $('html, body').animate({
+            scrollTop: $(document).scrollTop()-150
+        }, 1000);
+        }   
+          if (arg == "down"){
+            $('html, body').animate({
+          scrollTop: $(document).scrollTop()+150
+      }, 1000);
+          }   
+          if (arg == "left"){
+            $('html, body').animate({
+            scrollTop: $(document).scrollLeft()-150
+        }, 1000);
+        } 
+        if (arg == "right"){
+            $('html, body').animate({
+            scrollTop: $(document).scrollLeft()+150
+        }, 1000);
+        } 
+          break;
+        case "enter":
+          // what do we do on enter?
+          console.log("handling enter")
+
+          var stringpieces = arg.split(/\s/);
+
+
+          $("input").each(function() {
+            if ($(this)[0].id == "empty"){
+              $(this).focus();
+              $(this).val(arg);
+            }
+
+          })
+          break;
+      } 
+  } else {
+    alert("sorry, that is not a recognized command");
+  }
+
         };
 
         speechRecognizer.onerror = function(event){
