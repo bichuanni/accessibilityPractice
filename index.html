@@ -32,6 +32,7 @@ $(document).ready(function() {
  	console.log(potentialcommand);
 
     var re = /^(click|scroll|enter)\s(.*)/i;
+    console.log(re);
     var result = re.exec(potentialcommand);
 
  	if(result) {
@@ -50,10 +51,12 @@ $(document).ready(function() {
       	  var stringpieces = arg.split(/\s/);
 
 
-      	  $("a,input,button").each(function() {
+      	  $("a").each(function() {
             console.log($(this)[0].tagName);
-      	    if($(this)[0].tagName == "INPUT") {
-
+      	    if($(this)[0].tagName == "A") {
+              if ($(this)[0].id == args){
+                console.log("found");
+              }
       	    	// look for the text in INPUT fields
       	    } //else if() {
 
@@ -159,7 +162,7 @@ Hello Ladies and gentleman my name is panos and in this videotutorial you are ab
 <p>
 <input type="button" value="cat"><br>
 <!-- <button id="start_button" onclick="startButton(event)" style="display: inline-block;"></button> -->
-<a href="https://www.google.com/">Google</a><br>
+<a href="https://www.google.com/" id="Google">Google</a><br>
 <a href="https://www.cmu.edu/">CMU</a><br>
 </body>
 </html>
