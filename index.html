@@ -52,13 +52,14 @@ $(document).ready(function() {
 
 
       	  $("a,input").each(function() {
-            console.log($(this)[0].tagName);
       	    if($(this)[0].tagName == "A") {
               if ($(this)[0].id == arg){
                 window.location.href = $(this).attr('href');
               }
       	    	// look for the text in INPUT fields
       	    } else if($(this)[0].tagName == "INPUT") {
+              console.log($(this)[0].tagName);
+              console.log($(this)[0].val);
               if ($(this)[0].val == arg){
                 console.log("ah");
               }
