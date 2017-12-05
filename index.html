@@ -24,7 +24,7 @@
     left: 50%;
   }
 </style>
-<script>
+<script>//===============this script is used for testing only===================================
 $(document).ready(function() {
   
   $('.cat').click(function() {
@@ -118,7 +118,7 @@ $(document).ready(function() {
  })
 
 });
-
+//===============the above script is used for testing only===================================
 </script>
 
 </head>
@@ -160,13 +160,13 @@ $(document).ready(function() {
 
           if(result) {
             var verb = result[1];
-              var arg = result[2]
+            var arg = result[2]
+            commandTriggered = true;
 
-      console.log("verb: " + verb + ", args: " + arg)
+            console.log("verb: " + verb + ", args: " + arg);
 
       switch(verb) {
         case "click":
-          commandTriggered = true;
           console.log("handling click")
 
           var stringpieces = arg.split(/\s/);
@@ -193,7 +193,6 @@ $(document).ready(function() {
 
           break;
         case "scroll":
-          commandTriggered = true;
           console.log("handling scroll");
 
           if (arg == "up"){
@@ -220,7 +219,6 @@ $(document).ready(function() {
         }
           break;
         case "enter":
-          commandTriggered = true;
           console.log("handling enter")
 
           var stringpieces = arg.split(/\s/);
