@@ -151,14 +151,15 @@ $(document).ready(function() {
             }
           }
           r.innerHTML = finalTranscripts + '<span style="color:#999">' + interimTranscripts + '</span>';
-        
+          
+          var clickTriggered = false;
           var re = /^(click|scroll|enter)\s(.*)/i;
           var result = re.exec(finalTranscripts);
           console.log(result);
 
           if(result) {
-    var verb = result[1];
-      var arg = result[2]
+            var verb = result[1];
+              var arg = result[2]
 
       console.log("verb: " + verb + ", args: " + arg)
 
@@ -176,15 +177,20 @@ $(document).ready(function() {
             if($(this)[0].tagName == "A") {
               if ($(this)[0].id == arg){
                 window.location.href = $(this).attr('href');
+                clickTriggered = true;
               }
               // look for the text in INPUT fields
             } else if($(this)[0].tagName == "INPUT") {
               if ($(this).attr('value') == arg){
                 $(this).trigger("click");
+                clickTriggered = true;
               } 
             }
           })
-          alert("sorry, that is not a recognized command");
+          if (clickTriggered == false){
+            alert("sorry, that is not a recognized command");
+          }
+          clickTriggered = false;
 
           break;
         case "scroll":
