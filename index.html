@@ -103,16 +103,11 @@ $(document).ready(function() {
 
 
           $("input").each(function() {
-            if($(this)[0].tagName == "INPUT") {
-              if ($(this)[0].id == "empty"){
-                $(this).focus();
-              }
-              //console.log($(this));
-              // if ($(this).attr('value') == arg){
-              //   $(this).trigger("click");
-              //   //console.log("ah");
-              // }
+            if ($(this)[0].id == "empty"){
+              $(this).focus();
+              $(this).val(arg);
             }
+
           })
       	  break;
       	// default:
