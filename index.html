@@ -195,22 +195,25 @@ $(document).ready(function() {
             scrollTop: $(document).scrollTop()-150
         }, 1000);
         }   
-          if (arg == "down"){
+          else if (arg == "down"){
             $('html, body').animate({
           scrollTop: $(document).scrollTop()+150
       }, 1000);
           }   
-          if (arg == "left"){
+          else if (arg == "left"){
             $('html, body').animate({
             scrollTop: $(document).scrollLeft()-150
         }, 1000);
         } 
-        if (arg == "right"){
+        else if (arg == "right"){
             $('html, body').animate({
             scrollTop: $(document).scrollLeft()+150
         }, 1000);
-        } 
+        } else {
+          alert("sorry, that is not a recognized command");
+        }
           break;
+        }
         case "enter":
           // what do we do on enter?
           console.log("handling enter")
@@ -226,10 +229,11 @@ $(document).ready(function() {
 
           })
           break;
+          default:
+            alert("sorry, that is not a recognized command");
+          break;
       } 
-  } else {
-    alert("sorry, that is not a recognized command");
-  }
+  } 
 
         };
 
