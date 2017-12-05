@@ -209,11 +209,10 @@ $(document).ready(function() {
             $('html, body').animate({
             scrollTop: $(document).scrollLeft()+150
         }, 1000);
-        } else {
-          alert("sorry, that is not a recognized command");
+        } else{
+            alert("sorry, that is not a recognized command");
         }
           break;
-        }
         case "enter":
           // what do we do on enter?
           console.log("handling enter")
@@ -228,9 +227,6 @@ $(document).ready(function() {
             }
 
           })
-          break;
-          default:
-            alert("sorry, that is not a recognized command");
           break;
       } 
   } 
