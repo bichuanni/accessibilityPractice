@@ -59,7 +59,7 @@ $(document).ready(function() {
       	    	// look for the text in INPUT fields
       	    } else if($(this)[0].tagName == "INPUT") {
               console.log($(this)[0].tagName);
-              console.log($(this)[0].val);
+              console.log($(this).attr('value'));
               if ($(this)[0].val == arg){
                 console.log("ah");
               }
