@@ -26,8 +26,9 @@
 </style>
 <script>
 $(document).ready(function() {
+  
   $('.cat').click(function() {
-     window.location = "https://www.google.com/";
+     alert("cat button is clicked!");
   });
 
  $("#commandbutton").click(function() {
@@ -97,6 +98,19 @@ $(document).ready(function() {
       	case "enter":
       	  // what do we do on enter?
       	  console.log("handling enter")
+
+          var stringpieces = arg.split(/\s/);
+
+
+          $("input").each(function() {
+            if($(this)[0].tagName == "INPUT") {
+              console.log($(this));
+              // if ($(this).attr('value') == arg){
+              //   $(this).trigger("click");
+              //   //console.log("ah");
+              // }
+            }
+          })
       	  break;
       	// default:
       	//   console.log("sorry, that is not a recognized command")
