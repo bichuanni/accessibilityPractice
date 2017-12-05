@@ -152,7 +152,6 @@ $(document).ready(function() {
           }
           r.innerHTML = finalTranscripts + '<span style="color:#999">' + interimTranscripts + '</span>';
           
-          var commandTriggered = false;
           var clickTriggered = false;
           var re = /^(click|scroll|enter)\s(.*)/i;
           var result = re.exec(finalTranscripts);
@@ -161,7 +160,6 @@ $(document).ready(function() {
           if(result) {
             var verb = result[1];
             var arg = result[2]
-            commandTriggered = true;
 
             console.log("verb: " + verb + ", args: " + arg);
 
@@ -234,10 +232,6 @@ $(document).ready(function() {
                 break;
             } 
           } 
-          if (commandTriggered == false){
-            alert("sorry, that is not a recognized command");
-          }
-          commandTriggered = false;
         };
 
         speechRecognizer.onerror = function(event){
